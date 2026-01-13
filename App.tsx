@@ -1,0 +1,151 @@
+
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import ProductCard from './components/ProductCard';
+import BuyingGuide from './components/BuyingGuide';
+import Blog from './components/Blog';
+import About from './components/About';
+import Contact from './components/Contact';
+import { PrivacyPolicy, TermsOfService, Impressum } from './components/Legal';
+import Footer from './components/Footer';
+// FIX: Imported AIAdvisor to use it in the application
+import AIAdvisor from './components/AIAdvisor';
+import { PRODUCTS } from './constants';
+import { AppSection } from './types';
+
+const App: React.FC = () => {
+  const [activeSection, setActiveSection] = useState<AppSection>(AppSection.Home);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeSection]);
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case AppSection.Home:
+        return (
+          <>
+            <Hero 
+              onStartShopping={() => setActiveSection(AppSection.Products)}
+              onViewGuide={() => setActiveSection(AppSection.Guide)}
+            />
+            
+            <section className="max-w-7xl mx-auto px-4 py-24">
+              <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-balance">
+                <div>
+                  <span className="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3 block">Top Tier Gear</span>
+                  <h2 className="text-4xl sm:text-5xl font-bold font-outfit text-slate-900 mb-2 leading-tight">Elite Surface Hardware</h2>
+                  <p className="text-slate-500 font-medium">Precision-tested accessories for high-performance maintenance.</p>
+                </div>
+                <button 
+                  onClick={() => setActiveSection(AppSection.Products)}
+                  className="bg-slate-50 text-brand-primary font-black uppercase tracking-widest text-[10px] px-8 py-4 rounded-xl hover:bg-brand-primary hover:text-white transition-all flex items-center gap-3 group border border-slate-100"
+                >
+                  View Full 2026 Fleet
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                {PRODUCTS.slice(0, 6).map(product => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+
+              <div className="mt-24 p-12 bg-indigo-600 rounded-[3rem] text-center relative overflow-hidden shadow-2xl shadow-indigo-200">
+                <div className="relative z-10">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-outfit text-white mb-6 italic">New to Professional Detailing?</h3>
+                  <p className="text-indigo-100 mb-10 max-w-xl mx-auto font-medium">Read our comprehensive masterclass on surface preservation, chemical safety, and the science of the showroom shine.</p>
+                  <button 
+                     onClick={() => setActiveSection(AppSection.Guide)}
+                     className="bg-white text-indigo-600 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl"
+                  >
+                    Consult Expert Guide
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            {/* FIX: Integrated AIAdvisor into the home page for real-time detailing assistance */}
+            <section className="bg-white py-12">
+              <AIAdvisor />
+            </section>
+
+            <section className="bg-slate-50 py-32">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+                  <div className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-slate-100 group hover:border-brand-primary transition-colors">
+                    <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🔬</div>
+                    <h3 className="text-xl font-bold font-outfit text-slate-900 mb-3">Chem-Safe Formulas</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-medium">Validated against modern synthetic leathers and anti-glare screen coatings.</p>
+                  </div>
+                  <div className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-slate-100 group hover:border-brand-primary transition-colors">
+                    <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🦾</div>
+                    <h3 className="text-xl font-bold font-outfit text-slate-900 mb-3">Durability Metrics</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-medium">Every fibre count and absorbency rate is verified in real-world detailing sessions.</p>
+                  </div>
+                  <div className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-slate-100 group hover:border-brand-primary transition-colors">
+                    <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">📊</div>
+                    <h3 className="text-xl font-bold font-outfit text-slate-900 mb-3">Expert Curated</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-medium">Human-verified inventory ensuring you always access the most reliable hardware.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </>
+        );
+      case AppSection.Products:
+        return (
+          <div className="max-w-7xl mx-auto px-4 py-20 min-h-screen">
+            <div className="mb-16">
+              <span className="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3 block">Complete Fleet</span>
+              <h2 className="text-5xl font-bold font-outfit text-slate-900 mb-4 leading-tight">Surface Selection</h2>
+              <p className="text-slate-500 font-medium">The comprehensive index of professional-grade detailing hardware.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {PRODUCTS.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        );
+      case AppSection.Blog:
+        return <Blog />;
+      case AppSection.Guide:
+        return <BuyingGuide />;
+      case AppSection.About:
+        return <About />;
+      case AppSection.Contact:
+        return <Contact />;
+      case AppSection.Privacy:
+        return <PrivacyPolicy />;
+      case AppSection.Terms:
+        return <TermsOfService />;
+      case AppSection.Impressum:
+        return <Impressum />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
+      <Header 
+        onNavigate={(section) => setActiveSection(section as AppSection)} 
+        activeSection={activeSection} 
+      />
+      
+      <main className="flex-1">
+        {renderSection()}
+      </main>
+
+      <Footer onNavigate={(section) => setActiveSection(section as AppSection)} />
+    </div>
+  );
+};
+
+export default App;
