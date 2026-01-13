@@ -21,20 +21,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   const shareProduct = (platform: 'facebook' | 'twitter' | 'pinterest') => {
-    const url = encodeURIComponent(product.link);
+    // Generate the deep link to the current website
+    const siteUrl = window.location.origin + window.location.pathname + `?product=${product.id}`;
+    const encodedUrl = encodeURIComponent(siteUrl);
     const text = encodeURIComponent(`Check out ${product.name} - Essential gear for your car! Found on CarWipes.de`);
     const media = encodeURIComponent(product.image);
     
     let shareUrl = '';
     switch (platform) {
       case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
         break;
       case 'twitter':
-        shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+        shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${encodedUrl}`;
         break;
       case 'pinterest':
-        shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&media=${media}&description=${text}`;
+        shareUrl = `https://pinterest.com/pin/create/button/?url=${encodedUrl}&media=${media}&description=${text}`;
         break;
     }
     

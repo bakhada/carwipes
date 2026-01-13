@@ -18,6 +18,17 @@ const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AppSection>(AppSection.Home);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check for deep links on mount (e.g., ?product=id)
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('product');
+    if (productId && PRODUCTS.find(p => p.id === productId)) {
+      setSelectedProductId(productId);
+      setActiveSection(AppSection.Products);
+    }
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,6 +36,11 @@ const App: React.FC = () => {
     if (activeSection !== AppSection.Products) {
       setSearchTerm('');
       setCurrentPage(1);
+      // Clear URL param if we navigate away from products
+      if (selectedProductId) {
+        setSelectedProductId(null);
+        window.history.replaceState({}, '', window.location.pathname);
+      }
     }
   }, [activeSection]);
 
@@ -56,6 +72,11 @@ const App: React.FC = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [filteredProducts, currentPage]);
+
+  const handleClearSpotlight = () => {
+    setSelectedProductId(null);
+    window.history.replaceState({}, '', window.location.pathname);
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -129,6 +150,61 @@ const App: React.FC = () => {
           </>
         );
       case AppSection.Products:
+        if (selectedProductId) {
+          const product = PRODUCTS.find(p => p.id === selectedProductId);
+          if (product) {
+            return (
+              <div className="max-w-5xl mx-auto px-4 py-20 min-h-screen">
+                <button 
+                  onClick={handleClearSpotlight}
+                  className="flex items-center gap-3 text-brand-primary font-black uppercase tracking-widest text-xs mb-12 group"
+                >
+                  <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Browse Collection
+                </button>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-white p-12 rounded-[3rem] border border-slate-100 shadow-2xl">
+                  <div className="bg-slate-50 rounded-[2rem] p-12 flex items-center justify-center aspect-square">
+                    <img src={product.image} alt={product.name} className="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-2xl" />
+                  </div>
+                  <div>
+                    <span className="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4 block">Detailing Spotlight</span>
+                    <h1 className="text-4xl font-bold font-outfit text-slate-900 mb-6 leading-tight">{product.name}</h1>
+                    <p className="text-slate-500 text-lg mb-10 leading-relaxed font-medium">{product.description}</p>
+                    <a 
+                      href={product.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-brand-primary text-white text-center py-5 rounded-2xl text-sm font-black uppercase tracking-widest hover:bg-brand-dark transition-all shadow-xl shadow-indigo-100 flex items-center justify-center gap-4 group"
+                    >
+                      Check Price on Amazon
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                    <div className="mt-12 flex items-center gap-4 p-6 bg-slate-50 rounded-2xl">
+                      <div className="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center text-brand-accent">✓</div>
+                      <div>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Authentic Gear</p>
+                        <p className="text-sm font-bold text-slate-900">Verified Detailing Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-20">
+                    <h3 className="text-2xl font-bold font-outfit text-slate-900 mb-10 text-center">Recommended For You</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                      {PRODUCTS.filter(p => p.id !== selectedProductId).slice(0, 3).map(p => (
+                        <ProductCard key={p.id} product={p} />
+                      ))}
+                    </div>
+                </div>
+              </div>
+            );
+          }
+        }
+
         return (
           <div className="max-w-7xl mx-auto px-4 py-20 min-h-screen">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
