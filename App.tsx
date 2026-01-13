@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductCard from './components/ProductCard';
@@ -12,12 +12,50 @@ import Footer from './components/Footer';
 import { PRODUCTS } from './constants';
 import { AppSection } from './types';
 
+const ITEMS_PER_PAGE = 9;
+
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AppSection>(AppSection.Home);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Reset search and page when switching sections
+    if (activeSection !== AppSection.Products) {
+      setSearchTerm('');
+      setCurrentPage(1);
+    }
   }, [activeSection]);
+
+  // Reset to first page when search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
+  // Scroll to top on page change
+  useEffect(() => {
+    if (activeSection === AppSection.Products) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentPage]);
+
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm.trim()) return PRODUCTS;
+    const lowerTerm = searchTerm.toLowerCase();
+    return PRODUCTS.filter(product => 
+      product.name.toLowerCase().includes(lowerTerm) || 
+      product.description.toLowerCase().includes(lowerTerm) ||
+      product.category.toLowerCase().includes(lowerTerm)
+    );
+  }, [searchTerm]);
+
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredProducts, currentPage]);
 
   const renderSection = () => {
     switch (activeSection) {
@@ -93,23 +131,104 @@ const App: React.FC = () => {
       case AppSection.Products:
         return (
           <div className="max-w-7xl mx-auto px-4 py-20 min-h-screen">
-            <div className="mb-16">
-              <span className="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3 block">Complete Fleet</span>
-              <h2 className="text-5xl font-bold font-outfit text-slate-900 mb-4 leading-tight">Surface Selection</h2>
-              <p className="text-slate-500 font-medium">The comprehensive index of professional-grade detailing hardware.</p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+              <div className="flex-1">
+                <span className="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-3 block">Complete Fleet</span>
+                <h2 className="text-5xl font-bold font-outfit text-slate-900 mb-4 leading-tight">Surface Selection</h2>
+                <p className="text-slate-500 font-medium">The comprehensive index of professional-grade detailing hardware.</p>
+              </div>
+              <div className="w-full md:w-96 relative group">
+                <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none">
+                  <svg className="w-5 h-5 text-slate-400 group-focus-within:text-brand-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                <input 
+                  type="text"
+                  placeholder="Search gear, materials..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-14 pr-6 py-5 bg-white rounded-2xl border border-slate-200 text-sm font-bold placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-indigo-50 focus:border-brand-primary transition-all shadow-sm"
+                />
+                {searchTerm && (
+                  <button 
+                    onClick={() => setSearchTerm('')}
+                    className="absolute inset-y-0 right-5 flex items-center text-slate-400 hover:text-slate-600"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {PRODUCTS.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            {paginatedProducts.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+                  {paginatedProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+
+                {/* Pagination Controls */}
+                {totalPages > 1 && (
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 py-10 border-t border-slate-100">
+                    <button 
+                      onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                      disabled={currentPage === 1}
+                      className="flex items-center gap-2 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all border border-slate-100 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" /></svg>
+                      Previous
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page)}
+                          className={`w-10 h-10 rounded-xl text-[10px] font-black transition-all ${
+                            currentPage === page 
+                            ? 'bg-brand-primary text-white shadow-xl shadow-indigo-100' 
+                            : 'bg-white text-slate-400 border border-slate-100 hover:border-brand-primary hover:text-brand-primary'
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+                    </div>
+
+                    <button 
+                      onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                      disabled={currentPage === totalPages}
+                      className="flex items-center gap-2 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all border border-slate-100 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50"
+                    >
+                      Next
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="py-32 text-center bg-slate-50 rounded-[3rem] border border-dashed border-slate-200">
+                <div className="text-5xl mb-6">🔍</div>
+                <h3 className="text-2xl font-bold font-outfit text-slate-900 mb-3">No hardware found</h3>
+                <p className="text-slate-500 mb-8 max-w-sm mx-auto font-medium">We couldn't find any products matching "{searchTerm}". Try checking your spelling or using more general terms.</p>
+                <button 
+                  onClick={() => setSearchTerm('')}
+                  className="bg-brand-primary text-white px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-brand-dark transition-all shadow-xl shadow-indigo-100"
+                >
+                  Clear Search
+                </button>
+              </div>
+            )}
           </div>
         );
       case AppSection.Blog:
         return <Blog />;
       case AppSection.Guide:
-        return <BuyingGuide />;
+        return <BuyingGuide onBrowseCatalog={() => setActiveSection(AppSection.Products)} />;
       case AppSection.About:
         return <About />;
       case AppSection.Contact:

@@ -1,7 +1,11 @@
 
 import React from 'react';
 
-const BuyingGuide: React.FC = () => {
+interface BuyingGuideProps {
+  onBrowseCatalog: () => void;
+}
+
+const BuyingGuide: React.FC<BuyingGuideProps> = ({ onBrowseCatalog }) => {
   return (
     <div className="bg-white">
       <article className="max-w-4xl mx-auto px-4 py-16 prose prose-slate">
@@ -66,7 +70,10 @@ const BuyingGuide: React.FC = () => {
           <div className="relative z-10">
             <h2 className="text-3xl font-bold font-outfit text-white mb-6 italic">Ready to Upgrade Your Kit?</h2>
             <p className="text-slate-400 mb-10 max-w-lg mx-auto font-medium">Explore our curated selection of verified detailing hardware, tested for the most demanding surfaces.</p>
-            <button className="bg-brand-primary text-white font-black px-12 py-5 rounded-2xl uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-indigo-500/20">
+            <button 
+              onClick={onBrowseCatalog}
+              className="bg-brand-primary text-white font-black px-12 py-5 rounded-2xl uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-indigo-500/20"
+            >
               Browse Professional Catalog
             </button>
           </div>
