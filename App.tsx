@@ -9,8 +9,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import { PrivacyPolicy, TermsOfService, Impressum } from './components/Legal';
 import Footer from './components/Footer';
-// FIX: Imported AIAdvisor to use it in the application
-import AIAdvisor from './components/AIAdvisor';
 import { PRODUCTS } from './constants';
 import { AppSection } from './types';
 
@@ -67,11 +65,6 @@ const App: React.FC = () => {
                   </button>
                 </div>
               </div>
-            </section>
-
-            {/* FIX: Integrated AIAdvisor into the home page for real-time detailing assistance */}
-            <section className="bg-white py-12">
-              <AIAdvisor />
             </section>
 
             <section className="bg-slate-50 py-32">
