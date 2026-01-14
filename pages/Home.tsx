@@ -35,7 +35,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-8">
               <div className="inline-flex items-center gap-2 bg-teal-500/10 px-4 py-2 rounded-full border border-teal-500/20 text-teal-700 text-xs font-bold uppercase tracking-widest">
-                <Sparkles className="w-4 h-4 animate-pulse" /> Shop the 2024 Collection
+                <Sparkles className="w-4 h-4 animate-pulse" /> Shop the 2026 Collection
               </div>
               <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">
                 Everything you need for a <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">Spotless Finish.</span>
