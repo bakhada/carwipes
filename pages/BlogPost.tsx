@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { articles, products } from '../data';
-import { ArrowLeft, Calendar, User, Tag, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Tag, ChevronRight, BookOpen } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ShareButtons from '../components/ShareButtons';
 
@@ -21,6 +21,12 @@ const BlogPost: React.FC = () => {
   if (!article) return <div className="py-20 text-center"><h2 className="text-2xl font-bold">Article not found</h2><Link to="/blog" className="text-teal-600 underline">Back to Blog</Link></div>;
 
   const recommendedProducts = products.slice(0, 3);
+  
+  // Find related articles (excluding current one)
+  const relatedArticles = articles
+    .filter(a => a.slug !== article.slug)
+    .sort(() => 0.5 - Math.random()) // Simple random shuffle for variety
+    .slice(0, 2);
 
   return (
     <div className="bg-white min-h-screen">
@@ -52,7 +58,7 @@ const BlogPost: React.FC = () => {
             </p>
             
             {article.content.split('\n\n').map((para, i) => (
-              <p key={i} className="text-lg">{para}</p>
+              <p key={i} className="text-lg" dangerouslySetInnerHTML={{ __html: para }} />
             ))}
             
             <h2 className="text-4xl font-black text-slate-900 pt-10 mb-6">The Professional Detailer's Secret</h2>
@@ -90,6 +96,32 @@ const BlogPost: React.FC = () => {
               <span className="px-4 py-2 bg-slate-50 text-slate-400 text-xs font-black rounded-lg uppercase tracking-widest border border-slate-100">#carcare</span>
             </div>
           </div>
+
+          {/* Related Articles Section */}
+          <section className="mt-24 pt-20 border-t border-slate-100">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="bg-teal-600 p-3 rounded-2xl text-white">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-black text-slate-900">Related Reading</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {relatedArticles.map(a => (
+                <Link to={`/blog/${a.slug}`} key={a.id} className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col">
+                  <div className="aspect-video overflow-hidden">
+                    <img src={a.image} alt={a.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  </div>
+                  <div className="p-8">
+                    <h4 className="text-xl font-black text-slate-900 mb-4 group-hover:text-teal-600 transition-colors line-clamp-2">{a.title}</h4>
+                    <p className="text-sm text-slate-500 mb-6 line-clamp-2">{a.excerpt}</p>
+                    <div className="flex items-center gap-2 text-xs font-black text-teal-600 uppercase tracking-widest">
+                      Read More <ChevronRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
         </article>
 
         {/* Sidebar */}
