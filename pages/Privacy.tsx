@@ -7,7 +7,7 @@ const Privacy: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold mb-10 text-gray-900 border-b pb-6">Privacy Policy</h1>
         <div className="prose prose-blue max-w-none text-gray-600 space-y-6">
-          <p className="text-sm font-bold text-gray-400">Last Updated: May 2024</p>
+          <p className="text-sm font-bold text-gray-400">Last Updated: May 2026</p>
           
           <h2 className="text-2xl font-bold text-gray-900">1. Information We Collect</h2>
           <p>We do not require user registration. We collect minimal data via cookies for site performance and analytics. If you sign up for our newsletter, we store your email address securely via our mailing provider.</p>

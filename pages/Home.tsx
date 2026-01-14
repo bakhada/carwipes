@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, 
@@ -14,22 +14,56 @@ import {
 } from 'lucide-react';
 import { products, articles } from '../data';
 import ProductCard from '../components/ProductCard';
+import AdPlacement from '../components/AdPlacement';
 
 const Home: React.FC = () => {
   const trending = products.slice(0, 4);
-  const topRated = products.slice(4, 8);
+
+  // Calculate dynamic counts based on the current product list
+  const counts = useMemo(() => {
+    const summary = {
+      microfibre: 0,
+      interior: 0,
+      drying: 0,
+      sets: 0
+    };
+
+    products.forEach(p => {
+      const name = p.name.toLowerCase();
+      
+      // Order of checks matters for exclusive categorization
+      if (name.includes('set') || name.includes('pack') || name.includes('kit') || name.includes('collection')) {
+        summary.sets++;
+      } else if (name.includes('dry') || name.includes('drying') || name.includes('chamois')) {
+        summary.drying++;
+      } else if (name.includes('wipes') || name.includes('interior') || name.includes('plastic') || name.includes('cockpit') || name.includes('glass')) {
+        summary.interior++;
+      } else if (name.includes('microfibre') || name.includes('fibre') || name.includes('cloth')) {
+        summary.microfibre++;
+      } else {
+        // Fallback to microfibre as it's the core niche
+        summary.microfibre++;
+      }
+    });
+
+    return summary;
+  }, []);
 
   const categories = [
-    { name: 'Microfibre', icon: <Layers className="w-6 h-6" />, count: '12 Items', color: 'bg-teal-50 text-teal-600' },
-    { name: 'Interior', icon: <Droplets className="w-6 h-6" />, count: '8 Items', color: 'bg-cyan-50 text-cyan-600' },
-    { name: 'Drying', icon: <Wind className="w-6 h-6" />, count: '5 Items', color: 'bg-emerald-50 text-emerald-600' },
-    { name: 'Sets', icon: <Sparkles className="w-6 h-6" />, count: '4 Items', color: 'bg-blue-50 text-blue-600' },
+    { name: 'Microfibre', icon: <Layers className="w-6 h-6" />, count: `${counts.microfibre} Items`, color: 'bg-teal-50 text-teal-600' },
+    { name: 'Interior', icon: <Droplets className="w-6 h-6" />, count: `${counts.interior} Items`, color: 'bg-cyan-50 text-cyan-600' },
+    { name: 'Drying', icon: <Wind className="w-6 h-6" />, count: `${counts.drying} Items`, color: 'bg-emerald-50 text-emerald-600' },
+    { name: 'Sets', icon: <Sparkles className="w-6 h-6" />, count: `${counts.sets} Items`, color: 'bg-blue-50 text-blue-600' },
   ];
 
   return (
     <div className="bg-[#fcfdfd]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+        <AdPlacement type="leaderboard" id="home-top-leaderboard" />
+      </div>
+
       {/* Dynamic Hero Section */}
-      <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden bg-gradient-to-b from-cyan-50/50 to-white">
+      <section className="relative pt-8 pb-24 lg:pt-12 lg:pb-32 overflow-hidden bg-gradient-to-b from-cyan-50/50 to-white">
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl opacity-60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -99,6 +133,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      <AdPlacement type="in-feed" id="home-mid-feed" />
+
       {/* Trending Products */}
       <section className="py-20 bg-[#fcfdfd]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,7 +198,7 @@ const Home: React.FC = () => {
             <p className="text-slate-500">Master the art of car detailing with our expert advice and step-by-step tutorials.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {articles.map(article => (
+            {articles.slice(0, 4).map(article => (
               <Link to={`/blog/${article.slug}`} key={article.id} className="group relative rounded-[2.5rem] overflow-hidden aspect-[16/10] shadow-xl">
                 <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
@@ -181,6 +217,10 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <AdPlacement type="leaderboard" id="home-bottom-leaderboard" />
+      </div>
 
       {/* Instant Support / Contact CTA */}
       <section className="py-20 border-t border-slate-100 bg-teal-50/20">

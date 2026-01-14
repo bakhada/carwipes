@@ -7,7 +7,7 @@ const Terms: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold mb-10 text-gray-900 border-b pb-6">Terms of Service</h1>
         <div className="prose prose-blue max-w-none text-gray-600 space-y-6">
-          <p className="text-sm font-bold text-gray-400 tracking-widest">Effective Date: May 20, 2024</p>
+          <p className="text-sm font-bold text-gray-400 tracking-widest">Effective Date: May 20, 2026</p>
           
           <h2 className="text-2xl font-bold text-gray-900">1. Use of Content</h2>
           <p>All content provided on CarWipes.de is for informational purposes only. We make no representations as to the accuracy or completeness of any information on this site or found by following any link on this site.</p>

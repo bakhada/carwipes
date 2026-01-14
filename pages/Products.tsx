@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { products } from '../data';
 import ProductCard from '../components/ProductCard';
+import AdPlacement from '../components/AdPlacement';
 import { Filter, Search as SearchIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const PRODUCTS_PER_PAGE = 9;
+const PRODUCTS_PER_PAGE = 12;
 
 const Products: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -83,6 +84,10 @@ const Products: React.FC = () => {
                 ))}
               </div>
             </div>
+
+            <div className="hidden lg:block">
+              <AdPlacement type="sidebar" id="catalog-sidebar-ad" />
+            </div>
           </aside>
 
           {/* Product Grid */}
@@ -95,8 +100,19 @@ const Products: React.FC = () => {
 
             {paginatedProducts.length > 0 ? (
               <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
+                  {/* First Row of Products */}
+                  {paginatedProducts.slice(0, 3).map(product => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+
+                {/* Mid-Catalog Ad */}
+                <AdPlacement type="leaderboard" id="catalog-mid-leaderboard" className="mb-12" />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
-                  {paginatedProducts.map(product => (
+                  {/* Rest of the Products */}
+                  {paginatedProducts.slice(3).map(product => (
                     <ProductCard key={product.id} product={product} />
                   ))}
                 </div>

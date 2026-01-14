@@ -5,6 +5,7 @@ import { articles, products } from '../data';
 import { ArrowLeft, Calendar, User, Tag, ChevronRight, BookOpen } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ShareButtons from '../components/ShareButtons';
+import AdPlacement from '../components/AdPlacement';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -27,6 +28,8 @@ const BlogPost: React.FC = () => {
     .filter(a => a.slug !== article.slug)
     .sort(() => 0.5 - Math.random()) // Simple random shuffle for variety
     .slice(0, 2);
+
+  const paragraphs = article.content.split('\n\n');
 
   return (
     <div className="bg-white min-h-screen">
@@ -57,14 +60,20 @@ const BlogPost: React.FC = () => {
               {article.excerpt}
             </p>
             
-            {article.content.split('\n\n').map((para, i) => (
-              <p key={i} className="text-lg" dangerouslySetInnerHTML={{ __html: para }} />
+            {/* Inject Ad after 2 paragraphs */}
+            {paragraphs.map((para, i) => (
+              <React.Fragment key={i}>
+                <p className="text-lg" dangerouslySetInnerHTML={{ __html: para }} />
+                {i === 1 && <AdPlacement type="leaderboard" id="blog-mid-content-ad" className="!my-12" />}
+              </React.Fragment>
             ))}
             
             <h2 className="text-4xl font-black text-slate-900 pt-10 mb-6">The Professional Detailer's Secret</h2>
             <p className="text-lg">
               Most enthusiasts forget that a cloth is a precision tool. Just like you wouldn't use a hammer to paint a wall, you shouldn't use a generic microfibre to buff expensive wax. The density of the fibers determines how much debris is trapped versus how much is dragged across your clear coat.
             </p>
+
+            <AdPlacement type="in-feed" id="blog-post-secret-ad" className="!my-12" />
             
             <div className="bg-slate-900 rounded-[3rem] p-12 text-white my-16 shadow-2xl shadow-teal-900/20 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-teal-500/30 transition-colors"></div>
@@ -146,6 +155,8 @@ const BlogPost: React.FC = () => {
                 Shop Full Catalog
               </Link>
             </div>
+
+            <AdPlacement type="sidebar" id="blog-sidebar-fixed" />
 
             <div className="bg-gradient-to-br from-teal-600 to-teal-500 rounded-[2.5rem] p-10 text-white shadow-2xl shadow-teal-600/20 relative overflow-hidden">
               <div className="relative z-10">

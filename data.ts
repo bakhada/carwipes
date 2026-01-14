@@ -281,7 +281,7 @@ export const articles: Article[] = [
     excerpt: "Not all microfibre cloths are created equal. Learn about GSM, weave types, and which one to use for paint vs. interior.",
     content: "When it comes to car detailing, your choice of cloth is as important as your choice of wax. Microfibre cloths are rated by GSM (Grams per Square Meter). A higher GSM typically means a thicker, plusher towel better for drying or buffing delicate paintwork, while lower GSM towels are great for glass or rougher interior surfaces.\n\nFor most enthusiasts, we recommend starting with a high-quality all-purpose cloth like the <a href='#/product/sonax-microfibre-cloth-panel-inner-pack-of-1-high-quality-absorbent-lint-free-for-streak-and-lint-free-cleaning-of-glass-mirrors-display-and-plastic-surfaces-item-no-04984000' class='text-teal-600 font-bold hover:underline'>SONAX Panel + Inner Cloth</a>. It provides the perfect balance for interior dusting and light polishing work.",
     slug: "best-microfibre-cloth-guide",
-    date: "2024-05-15",
+    date: "2026-05-15",
     image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -290,7 +290,7 @@ export const articles: Article[] = [
     excerpt: "Quick spill? Dusty dashboard? These 5 wipes will keep your car interior pristine on the go.",
     content: "Maintaining a clean car doesn't always require a bucket and hose. High-quality interior wipes like <a href='#/product/armor-all-wipes-pack-of-20-gaa87020ge-antibacterial-and-dermatologically-tested-satin' class='text-teal-600 font-bold hover:underline'>Armor All</a> or NIGRIN provide instant protection and cleaning. We break down the top 5 types you need for plastic, leather, and glass. For example, the Poliboy Wet Wipes are excellent for a quick refresh without leaving a greasy residue. If you are preparing for a full wash day, don't miss our <a href='#/blog/best-car-wash-mitt-guide' class='text-teal-600 font-bold hover:underline'>Wash Mitt Selection Guide</a>.",
     slug: "essential-car-wipes-list",
-    date: "2024-05-20",
+    date: "2026-05-20",
     image: "https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -299,7 +299,7 @@ export const articles: Article[] = [
     excerpt: "Stop using old bath towels. Discover the ultra-absorbent cloths that detailers swear by for drying paint safely.",
     content: "Water spots are the enemy of a perfect wash. To prevent them, you need a high-GSM drying cloth. The <a href='#/product/1x-liquid-elements-silverback-dry-cloth-xl-50-x-80-cm-1200gsm' class='text-teal-600 font-bold hover:underline'>Liquid Elements Silverback (1200 GSM)</a> and the Nuke Guys Gamma Dryer S are currently the industry standards in Germany. They can absorb multiple times their weight in water, allowing you to dry an entire vehicle without wringing out the cloth once. Other top contenders include the Meguiar's X1905EU and the SONAX Microfibre Dry Cloth Plus.",
     slug: "top-5-drying-cloths-review",
-    date: "2024-06-02",
+    date: "2026-06-02",
     image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -308,7 +308,7 @@ export const articles: Article[] = [
     excerpt: "Should you buy a full bundle or just a pack of wipes? We compare detailmate's Koch Chemie sets with handy disposable alternatives.",
     content: "For a deep clean, nothing beats the <a href='#/product/detailmate-koch-chemie-refresh-cockpit-care-set-0-5-l-sponge-applicator-soft-microfibre-cloth-interior-cleaning' class='text-teal-600 font-bold hover:underline'>Koch Chemie Refresh Cockpit</a> sets provided by detailmate. These kits include specialized sponges and microfibres that reach deep into plastic pores. However, for daily maintenance, the Armor All or NIGRIN plastic care wipes are unbeatable for their convenience. If you want to know more about the base materials, read our <a href='#/blog/best-microfibre-cloth-guide' class='text-teal-600 font-bold hover:underline'>Microfibre Selection Guide</a>.",
     slug: "interior-detailing-kit-vs-wipes",
-    date: "2024-06-08",
+    date: "2026-06-08",
     image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -317,7 +317,7 @@ export const articles: Article[] = [
     excerpt: "German engineering isn't just for the cars themselves. Learn why detailers trust detailmate's Koch Chemie bundles for perfection.",
     content: "Koch Chemie is a staple in high-end detailing shops across Europe. Their products, such as the Allround Quick Shine found in <a href='#/product/detailmate-show-shine-detailer-set-koch-chemie-allround-quick-shine-finish-spray-bottle-500-ml-microfibre-polishing-cloth-40-x-40-cm-550-gsm' class='text-teal-600 font-bold hover:underline'>detailmate sets</a>, offer a level of finish that cheaper alternatives simply can't match. When paired with a 550 GSM rimless microfibre, these detailers leave a streak-free, high-gloss shine that protects the paint from UV damage and road grime.",
     slug: "koch-chemie-professional-review",
-    date: "2024-06-15",
+    date: "2026-06-15",
     image: "https://images.unsplash.com/photo-1599256621730-535171e28e50?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -326,7 +326,7 @@ export const articles: Article[] = [
     excerpt: "Struggling with hazy windows? The secret isn't the spray—it's the waffle weave cloth.",
     content: "Standard plush microfibres often leave tiny lint particles on glass. Detailers use waffle weave cloths, like the <a href='#/product/nuke-guys-car-glass-cloths-streak-free-see-through-glass-cleaning-cloths-pack-of-2-microfibre-waffle-cloths-window-cloths-35-x-35-cm-450-gsm' class='text-teal-600 font-bold hover:underline'>Nuke Guys Glass Cloths (450 GSM)</a>, because the 'waffle' pockets trap dirt and moisture while providing enough friction to remove film and haze. Combine this with the SONAX Windscreen Cleaning Cloths for an unbeatable two-step process: clean with the wipe, buff to a shine with the waffle weave.",
     slug: "waffle-weave-glass-secrets",
-    date: "2024-06-22",
+    date: "2026-06-22",
     image: "https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -335,7 +335,7 @@ export const articles: Article[] = [
     excerpt: "Avoid swirl marks by switching from a sponge to a microfibre wash mitt. We review the best from SONAX and Meguiar's.",
     content: "Sponges trap dirt on their surface, dragging it across your paint. Microfibre mitts, like the <a href='#/product/sonax-428200-microfibre-wash-mitt' class='text-teal-600 font-bold hover:underline'>SONAX 428200</a> or the Nuke Guys XL Chenille, pull dirt away from the surface into the long fibers. The <a href='#/product/meguiar-s-wash-mitt' class='text-teal-600 font-bold hover:underline'>Meguiar's Wash Mitt</a> is another classic choice that holds an incredible amount of soapy water, ensuring plenty of lubrication to prevent scratches during the contact wash stage. After washing, ensure you follow up with a proper <a href='#/blog/top-5-drying-cloths-review' class='text-teal-600 font-bold hover:underline'>Drying Cloth</a>.",
     slug: "best-car-wash-mitt-guide",
-    date: "2024-06-30",
+    date: "2026-06-30",
     image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -344,7 +344,7 @@ export const articles: Article[] = [
     excerpt: "Brake dust is acidic and can ruin your finish. Learn how to clean and protect your wheels like a pro.",
     content: "Your wheels take the most abuse of any part of your car. Brake dust is actually tiny shards of hot metal that embed themselves in the wheel's clear coat. Using a specialized rim brush and a set of dedicated <a href='#/product/detailmate-car-microfibre-cloths-40-x-40-550-gsm-rimless-and-gentle-on-paint-10-x-car-care-microfibre-cloth-for-interior-paint-rims-soft-cloth-cleaning-cloth-polishing-cloth' class='text-teal-600 font-bold hover:underline'>rimless microfibres</a> is essential. Never use your paint towels on your wheels—the metal particles will scratch your hood during the next wash! Check our <a href='#/blog/best-microfibre-cloth-guide' class='text-teal-600 font-bold hover:underline'>Microfibre Guide</a> for more on color coding.",
     slug: "rim-care-brake-dust-guide",
-    date: "2024-07-05",
+    date: "2026-07-05",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -353,7 +353,7 @@ export const articles: Article[] = [
     excerpt: "Living in a city? Discover how waterless wash technology allows for a scratch-free shine anywhere.",
     content: "Water restrictions and city living make traditional bucket washes difficult. High-lubricity formulas like <a href='#/product/meguiar-s-g3626eu-ultimate-waterless-wash-wax-dry-wash-768ml' class='text-teal-600 font-bold hover:underline'>Meguiar's Waterless Wash & Wax</a> encapsulate dirt particles, allowing you to safely wipe them away. The secret to success here is using a high-GSM towel (at least 400+) and folding it frequently to always use a clean side. It’s perfect for the urban detailer who wants that 'just waxed' look without the mess.",
     slug: "waterless-wash-eco-detailing",
-    date: "2024-07-12",
+    date: "2026-07-12",
     image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -362,7 +362,7 @@ export const articles: Article[] = [
     excerpt: "Sun-damaged plastics making your car look old? Here is the two-step process to restore that factory finish.",
     content: "Plastic trim fades due to UV exposure, turning a dull grey. Before applying a protectant, you must deep-clean the pores. We recommend using a dedicated <a href='#/product/nigrin-plastic-care-wipes-cleans-nourishes-and-protects-suitable-for-all-plastic-and-vinyl-surfaces-in-the-vehicle-interior-matt-30-cloths' class='text-teal-600 font-bold hover:underline'>NIGRIN Plastic Care Wipe</a> or the Armor All equivalent. For long-term preservation, following up with a UV-blocking sealant ensures the plastic stays hydrated and flexible, preventing cracks over time.",
     slug: "revive-faded-plastic-trim",
-    date: "2024-07-18",
+    date: "2026-07-18",
     image: "https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -371,7 +371,7 @@ export const articles: Article[] = [
     excerpt: "Are your towels losing their absorbency? You might be washing them wrong. Follow these rules to keep them like new.",
     content: "Microfibre is a polymer blend that is sensitive to heat and chemicals. Never use fabric softener; it coats the fibers in oil and kills their ability to absorb water. Always wash on a cold or warm cycle (max 40°C) with a dedicated microfibre detergent or a liquid soap without scents/softeners. When drying, either air dry or use the lowest heat setting. High heat will melt the polyester tips, turning your soft towel into a scratchy rag. For the best drying results, pair your clean cloths with our <a href='#/blog/top-5-drying-cloths-review' class='text-teal-600 font-bold hover:underline'>Top 5 Drying Cloth Recommendations</a>.",
     slug: "how-to-wash-microfibre-cloths",
-    date: "2024-07-25",
+    date: "2026-07-25",
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -380,7 +380,7 @@ export const articles: Article[] = [
     excerpt: "Winter is hard on interiors. Use this professional checklist to remove salt, grime, and bacteria from your cabin.",
     content: "A truly clean interior requires more than just a vacuum. Start by disinfecting screens with <a href='#/product/whoosh-whwipes70-screen-shine-antimicrobial-wipes-with-mini-cloth-pack-of-70' class='text-teal-600 font-bold hover:underline'>WHOOSH! antimicrobial wipes</a>. Then, tackle the dashboard and door panels using a professional kit like the <a href='#/product/detailmate-interior-cleaning-set-kochchemie-pol-star-1-litre-made-by-kwazar-mercury-super-pro-360-degree-spray-bottle-0-5-litre-double-action-trigger-microfibre-cloth-40-x-40-cm' class='text-teal-600 font-bold hover:underline'>Koch Chemie Pol Star Set</a>. Finally, treat the leather or upholstery to prevent drying and cracking. This deep detox not only makes the car look new but improves air quality and resale value.",
     slug: "car-interior-detox-checklist",
-    date: "2024-08-02",
+    date: "2026-08-02",
     image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&q=80&w=800"
   }
 ];

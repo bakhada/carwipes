@@ -5,6 +5,7 @@ import { products } from '../data';
 import { ExternalLink, Star, ArrowLeft, CheckCircle, Info } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ShareButtons from '../components/ShareButtons';
+import AdPlacement from '../components/AdPlacement';
 
 const ProductDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -40,12 +41,15 @@ const ProductDetail: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           {/* Image Gallery */}
-          <div className="bg-[#fbfcfc] rounded-[3rem] p-12 border border-slate-50 flex items-center justify-center sticky top-24 h-fit group">
-            <img 
-              src={product.image} 
-              alt={product.name} 
-              className="max-w-full h-auto drop-shadow-2xl transform transition-transform duration-700 group-hover:scale-105" 
-            />
+          <div className="space-y-8 sticky top-24 h-fit">
+            <div className="bg-[#fbfcfc] rounded-[3rem] p-12 border border-slate-50 flex items-center justify-center group h-[400px] md:h-[500px]">
+              <img 
+                src={product.image} 
+                alt={product.name} 
+                className="max-w-full h-auto drop-shadow-2xl transform transition-transform duration-700 group-hover:scale-105 object-contain" 
+              />
+            </div>
+            <AdPlacement type="leaderboard" id="product-detail-under-image" />
           </div>
 
           {/* Content */}
@@ -105,7 +109,9 @@ const ProductDetail: React.FC = () => {
               </div>
             </div>
 
-            <ShareButtons title={product.name} url={currentUrl} className="mt-4" />
+            <AdPlacement type="rectangle" id="product-detail-summary-side" className="self-center" />
+
+            <ShareButtons title={product.name} url={currentUrl} className="mt-8" />
           </div>
         </div>
 
@@ -117,6 +123,9 @@ const ProductDetail: React.FC = () => {
               <p>
                 When it comes to maintaining a pristine car interior and exterior, the <strong>{product.name}</strong> stands out as a top-tier choice. Brands like <strong>{product.brand}</strong> have long been synonymous with high-end automotive care.
               </p>
+              
+              <AdPlacement type="leaderboard" id="product-detail-insight-mid" />
+
               <p>
                 This specific product is designed to solve common detailing problems such as streaking, lint residue, and surface scratching. Whether you are performing a full paint correction or just a quick interior wipe-down, the high-absorbency fibers of this tool make the process effortless.
               </p>

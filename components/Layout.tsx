@@ -106,7 +106,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
           
           <div className="pt-12 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black text-slate-700 uppercase tracking-[0.2em]">
-            <p>&copy; 2024 CARWIPES.DE • AMAZON PARTNER</p>
+            <p>&copy; 2026 CARWIPES.DE • AMAZON PARTNER</p>
             <div className="flex gap-8">
               <span className="hover:text-teal-500 transition-colors cursor-default">DESIGNED IN GERMANY</span>
               <span className="hover:text-teal-500 transition-colors cursor-default">PREMIUM DETAILING</span>
