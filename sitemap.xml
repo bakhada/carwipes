@@ -17,7 +17,7 @@
     <loc>https://carwipes.de/#/blog</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://carwipes.de/#/about</loc>
@@ -25,142 +25,86 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://carwipes.de/#/contact</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
-  <!-- Blog Articles -->
+  <!-- Professional Detailing Journal Articles -->
   <url>
     <loc>https://carwipes.de/#/blog/best-microfibre-cloth-guide</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://carwipes.de/#/blog/essential-car-wipes-list</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://carwipes.de/#/blog/top-5-drying-cloths-review</loc>
-    <lastmod>2026-06-02</lastmod>
+    <loc>https://carwipes.de/#/blog/streak-free-glass-detailing</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://carwipes.de/#/blog/interior-detailing-kit-vs-wipes</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/koch-chemie-professional-review</loc>
+    <loc>https://carwipes.de/#/blog/microfibre-maintenance-guide</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://carwipes.de/#/blog/waffle-weave-glass-secrets</loc>
-    <lastmod>2026-06-22</lastmod>
+    <loc>https://carwipes.de/#/blog/interior-restoration-blueprint</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/#/blog/ceramic-coating-maintenance-protocol</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/#/blog/wheel-detailing-masterclass</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/#/blog/professional-leather-care-guide</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- High-Priority Product Pages -->
-  <url>
-    <loc>https://carwipes.de/#/product/sonax-microfibre-cloth-panel-inner-pack-of-1-high-quality-absorbent-lint-free-for-streak-and-lint-free-cleaning-of-glass-mirrors-display-and-plastic-surfaces-item-no-04984000</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/armor-all-wipes-pack-of-20-gaa87020ge-antibacterial-and-dermatologically-tested-satin</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- High-Intent Product Reviews -->
   <url>
     <loc>https://carwipes.de/#/product/nuke-guys-gamma-dryer-s-ultra-absorbent-handy-drying-cloth-1400-gsm-grey-40-x-40-cm-lint-free-rounded-soft-fibres-scratch-free-premium-microfibre-cloth-for-cars-motorcycles-bicycles</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/meguiar-s-g3626eu-ultimate-waterless-wash-wax-dry-wash-768ml</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://carwipes.de/#/product/detailmate-koch-chemie-refresh-cockpit-care-set-0-5-l-sponge-applicator-soft-microfibre-cloth-interior-cleaning</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/nigrin-plastic-care-wipes-cleans-nourishes-and-protects-suitable-for-all-plastic-and-vinyl-surfaces-in-the-vehicle-interior-matt-30-cloths</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://carwipes.de/#/product/1x-liquid-elements-silverback-dry-cloth-xl-50-x-80-cm-1200gsm</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/sonax-428200-microfibre-wash-mitt</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/detailmate-interior-cleaning-set-kochchemie-pol-star-1-litre-made-by-kwazar-mercury-super-pro-360-degree-spray-bottle-0-5-litre-double-action-trigger-microfibre-cloth-40-x-40-cm</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/nuke-guys-car-glass-cloths-streak-free-see-through-glass-cleaning-cloths-pack-of-2-microfibre-waffle-cloths-window-cloths-35-x-35-cm-450-gsm</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/poliboy-wet-wipes-cleaning-wipes-various-types-and-pack-sizes-made-in-germany</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://carwipes.de/#/product/gentlemonkeys-professional-car-interior-cleaner-set-500-ml-microfibre-cloth-and-sponge-deep-pore-cleaning-of-all-materials-installed-in-the-vehicle-universal-use-biodegradable</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Legal Pages -->
-  <url>
-    <loc>https://carwipes.de/#/privacy</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://carwipes.de/#/terms</loc>
+    <loc>https://carwipes.de/#/product/sonax-microfibre-cloth-glass-pack-of-3-absorbent-and-lint-free-for-streak-free-cleanliness-of-windows-and-mirrors-item-no-04515410</loc>
     <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/disclosure</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

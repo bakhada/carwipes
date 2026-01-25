@@ -1,32 +1,44 @@
-
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { products } from '../data';
 import ProductCard from '../components/ProductCard';
-import AdPlacement from '../components/AdPlacement';
-import { Filter, Search as SearchIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search as SearchIcon, ChevronLeft, ChevronRight, X, LayoutGrid, List, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const PRODUCTS_PER_PAGE = 12;
 
 const Products: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const initialSearch = queryParams.get('search') || '';
+
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [activeBrand, setActiveBrand] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const { t, updateSeo, language } = useLanguage();
 
-  const brands = ['All', ...new Set(products.map(p => p.brand))];
+  useEffect(() => {
+    updateSeo(t('seo.catalog.title'), t('seo.catalog.desc'));
+  }, [language, t, updateSeo]);
 
-  // Filter products based on search and brand
+  useEffect(() => {
+    const s = queryParams.get('search') || '';
+    if (s !== searchTerm) setSearchTerm(s);
+  }, [location.search]);
+
+  const brands = ['All', ...new Set(products.map(p => p.brand))].sort();
+
   const filteredProducts = products.filter(p => {
-    const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const pName = language === 'de' ? p.name_de : p.name;
+    const matchesSearch = pName.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesBrand = activeBrand === 'All' || p.brand === activeBrand;
     return matchesSearch && matchesBrand;
   });
 
-  // Calculate pagination
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
   const paginatedProducts = filteredProducts.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
 
-  // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, activeBrand]);
@@ -36,143 +48,137 @@ const Products: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const clearFilters = () => {
+    setSearchTerm('');
+    setActiveBrand('All');
+  };
+
   return (
-    <div className="bg-gray-50 min-h-screen py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-12">
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Car Care Catalog</h1>
-          <p className="text-gray-600 max-w-2xl leading-relaxed">
-            Browse our complete collection of microfibre towels, drying cloths, and interior wipes. Discover professional tools from Germany's most trusted manufacturers.
-          </p>
-        </header>
-
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filters */}
-          <aside className="lg:w-64 space-y-8 flex-shrink-0">
-            <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100">
-              <h3 className="font-black text-slate-900 mb-6 flex items-center gap-2 text-xs uppercase tracking-widest">
-                <SearchIcon className="w-4 h-4 text-teal-600" /> Search
-              </h3>
-              <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="e.g. Sonax cloth..." 
-                  className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm focus:ring-2 focus:ring-teal-500 outline-none transition-all placeholder:text-slate-400"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+    <div className="bg-slate-50 min-h-screen">
+      <div className="bg-white border-b border-slate-100 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter italic">{t('catalog.title')}</h1>
+            <p className="text-lg text-slate-500 font-medium leading-relaxed mb-10">{t('catalog.desc')}</p>
+            
+            <div className="relative group max-w-xl">
+              <input 
+                type="text" 
+                placeholder={t('hero.searchPlaceholder')} 
+                className="w-full bg-slate-100 border-2 border-transparent rounded-2xl px-12 py-5 outline-none focus:border-teal-500 focus:bg-white transition-all text-lg font-bold shadow-sm"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-teal-600 transition-colors" />
+              {searchTerm && (
+                <button onClick={() => setSearchTerm('')} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white rounded-xl text-slate-400 hover:text-slate-900 shadow-sm transition-all">
+                  <X className="w-4 h-4" />
+                </button>
+              )}
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100">
-              <h3 className="font-black text-slate-900 mb-6 flex items-center gap-2 text-xs uppercase tracking-widest">
-                <Filter className="w-4 h-4 text-teal-600" /> Brands
-              </h3>
-              <div className="space-y-2">
-                {brands.map(brand => (
-                  <button
-                    key={brand}
-                    onClick={() => setActiveBrand(brand)}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all font-bold ${
-                      activeBrand === brand 
-                        ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/20' 
-                        : 'text-slate-500 hover:bg-teal-50 hover:text-teal-600'
-                    }`}
-                  >
-                    {brand}
-                  </button>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12">
+        <aside className="lg:w-72 flex-shrink-0">
+          <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm sticky top-24">
+            <h3 className="text-[10px] font-black text-slate-900 uppercase tracking-widest mb-8 flex items-center justify-between">
+              {t('catalog.brands')}
+              {activeBrand !== 'All' && <span className="w-2 h-2 rounded-full bg-teal-500"></span>}
+            </h3>
+            
+            <div className="flex flex-col gap-2">
+              {brands.map(brand => (
+                <button
+                  key={brand}
+                  onClick={() => setActiveBrand(brand)}
+                  className={`text-left px-5 py-3.5 rounded-xl text-sm font-black transition-all flex items-center justify-between ${
+                    activeBrand === brand 
+                      ? 'bg-slate-950 text-white shadow-lg' 
+                      : 'text-slate-400 hover:text-teal-600 hover:bg-teal-50/50'
+                  }`}
+                >
+                  {brand}
+                  {activeBrand === brand && <CheckCircle2 className="w-4 h-4 text-teal-400" />}
+                </button>
+              ))}
+            </div>
+          </div>
+        </aside>
+
+        <div className="flex-grow">
+          <div className="flex items-center justify-between mb-10 bg-white px-8 py-4 rounded-2xl border border-slate-100 shadow-sm">
+            <div className="flex items-center gap-3">
+               <div className="bg-teal-500/10 text-teal-600 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">
+                 {filteredProducts.length} {t('catalog.results')}
+               </div>
+            </div>
+            <div className="flex items-center gap-2">
+               <button className="p-2.5 bg-slate-900 text-white rounded-xl"><LayoutGrid className="w-4 h-4" /></button>
+               <button className="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:text-slate-900"><List className="w-4 h-4" /></button>
+            </div>
+          </div>
+
+          {paginatedProducts.length > 0 ? (
+            <div className="space-y-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+                {paginatedProducts.map(product => (
+                  <ProductCard key={product.id} product={product} />
                 ))}
               </div>
-            </div>
 
-            <div className="hidden lg:block">
-              <AdPlacement type="sidebar" id="catalog-sidebar-ad" />
-            </div>
-          </aside>
-
-          {/* Product Grid */}
-          <div className="flex-grow flex flex-col">
-            <div className="flex justify-between items-center mb-8 bg-white p-4 px-6 rounded-2xl border border-slate-100 shadow-sm">
-              <p className="text-xs font-black text-slate-400 uppercase tracking-widest">
-                Showing <span className="text-slate-900">{Math.min(startIndex + 1, filteredProducts.length)} - {Math.min(startIndex + PRODUCTS_PER_PAGE, filteredProducts.length)}</span> of <span className="text-slate-900">{filteredProducts.length}</span> results
-              </p>
-            </div>
-
-            {paginatedProducts.length > 0 ? (
-              <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
-                  {/* First Row of Products */}
-                  {paginatedProducts.slice(0, 3).map(product => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
-                </div>
-
-                {/* Mid-Catalog Ad */}
-                <AdPlacement type="leaderboard" id="catalog-mid-leaderboard" className="mb-12" />
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
-                  {/* Rest of the Products */}
-                  {paginatedProducts.slice(3).map(product => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
-                </div>
-
-                {/* Pagination Controls */}
-                {totalPages > 1 && (
-                  <div className="mt-auto flex justify-center items-center gap-2 pt-8 border-t border-slate-200">
-                    <button
-                      onClick={() => handlePageChange(currentPage - 1)}
-                      disabled={currentPage === 1}
-                      className="p-3 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-teal-50 hover:text-teal-600 hover:border-teal-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    
-                    <div className="flex items-center gap-2">
-                      {[...Array(totalPages)].map((_, i) => {
-                        const pageNumber = i + 1;
-                        return (
-                          <button
-                            key={pageNumber}
-                            onClick={() => handlePageChange(pageNumber)}
-                            className={`w-12 h-12 rounded-xl text-sm font-black transition-all ${
-                              currentPage === pageNumber
-                                ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/30 scale-110'
-                                : 'bg-white border border-slate-200 text-slate-500 hover:bg-teal-50 hover:text-teal-600 hover:border-teal-200'
-                            }`}
-                          >
-                            {pageNumber}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    <button
-                      onClick={() => handlePageChange(currentPage + 1)}
-                      disabled={currentPage === totalPages}
-                      className="p-3 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-teal-50 hover:text-teal-600 hover:border-teal-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-3 pt-12">
+                  <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="w-12 h-12 rounded-xl border border-slate-200 bg-white text-slate-400 hover:text-teal-600 hover:border-teal-200 disabled:opacity-30 flex items-center justify-center transition-all"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  
+                  <div className="flex items-center gap-2">
+                    {[...Array(totalPages)].map((_, i) => (
+                      <button
+                        key={i + 1}
+                        onClick={() => handlePageChange(i + 1)}
+                        className={`w-12 h-12 rounded-xl text-xs font-black transition-all ${
+                          currentPage === i + 1
+                            ? 'bg-slate-950 text-white shadow-lg scale-105'
+                            : 'bg-white border border-slate-200 text-slate-400 hover:border-teal-200'
+                        }`}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
                   </div>
-                )}
-              </>
-            ) : (
-              <div className="bg-white rounded-[3rem] p-20 text-center border-2 border-dashed border-slate-200">
-                <div className="bg-slate-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <SearchIcon className="w-8 h-8 text-slate-300" />
+
+                  <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="w-12 h-12 rounded-xl border border-slate-200 bg-white text-slate-400 hover:text-teal-600 hover:border-teal-200 disabled:opacity-30 flex items-center justify-center transition-all"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">No matches found</h3>
-                <p className="text-slate-500 mb-8">Try adjusting your filters or search terms.</p>
-                <button 
-                  onClick={() => { setSearchTerm(''); setActiveBrand('All'); }}
-                  className="bg-slate-900 text-white px-8 py-3.5 rounded-2xl font-bold text-sm hover:bg-teal-600 transition-all shadow-xl shadow-slate-900/10"
-                >
-                  Clear all filters
-                </button>
+              )}
+            </div>
+          ) : (
+            <div className="bg-white rounded-3xl p-16 text-center border-2 border-dashed border-slate-200">
+              <div className="bg-slate-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-slate-300">
+                <SearchIcon className="w-8 h-8" />
               </div>
-            )}
-          </div>
+              <h3 className="text-2xl font-black text-slate-900 mb-2 italic">{t('catalog.noMatches')}</h3>
+              <p className="text-slate-500 mb-8 font-medium">{language === 'de' ? 'Versuchen Sie es mit anderen Filtern.' : 'Try adjusting your search terms or filters.'}</p>
+              <button 
+                onClick={clearFilters}
+                className="bg-teal-600 text-white px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-teal-500 transition-all shadow-lg"
+              >
+                {t('catalog.clearFilters')}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

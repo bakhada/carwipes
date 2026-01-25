@@ -1,5 +1,9 @@
+# CarWipes.de SEO Robot Configuration
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Direct crawlers to the sitemap for faster indexing
 Sitemap: https://carwipes.de/sitemap.xml
+
+# Discourage crawling of utility scripts if any existed (not applicable currently)
+# Disallow: /api/
