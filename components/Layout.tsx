@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Search, Car, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
@@ -109,6 +108,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <ul className="space-y-5 text-sm font-bold">
                 <li><Link to="/privacy" className="text-slate-400 hover:text-teal-600 transition-colors">Privacy Policy</Link></li>
                 <li><Link to="/terms" className="text-slate-400 hover:text-teal-600 transition-colors">Terms of Service</Link></li>
+                <li><a href="/sitemap.xml" className="text-slate-200 text-[8px] hover:text-teal-500">Sitemap</a></li>
               </ul>
             </div>
           </div>
