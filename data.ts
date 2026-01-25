@@ -530,7 +530,7 @@ Verwenden Sie niemals Tücher mit harten Polyesterrändern auf Ihrem Lack. Diese
     title: "5 Essential Professional Car Wipes for Emergency Detailing",
     title_de: "5 unverzichtbare Profi-Reinigungstücher für jedes Handschuhfach",
     excerpt: "Immediate response saves your interior. Discover the five specialized wipes every enthusiast must carry to prevent permanent wear.",
-    excerpt_de: "Sofortige Reaktion schont Ihren Innenraum. Entdecken Sie die fiv spezialisierten Tücher, die jeder Enthusiast dabeihaben muss.",
+    excerpt_de: "Sofortige Reaktion schont Ihren Innenraum. Entdecken Sie die five spezialisierten Tücher, die jeder Enthusiast dabeihaben muss.",
     content: `Every professional detailer knows that the best way to maintain a vehicle's value is immediate response. Acidic contaminants on the paint or spills on the dashboard don't wait for your scheduled weekend wash. We have curated a technical list of the five essential wipes every driver should carry for a pro-active detailing approach.
 
 <div class="overflow-x-auto my-8 border border-slate-200 rounded-3xl">

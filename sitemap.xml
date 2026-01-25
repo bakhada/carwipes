@@ -26,85 +26,13 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- Professional Detailing Journal Articles -->
-  <url>
-    <loc>https://carwipes.de/#/blog/best-microfibre-cloth-guide</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/essential-car-wipes-list</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/streak-free-glass-detailing</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/microfibre-maintenance-guide</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/interior-restoration-blueprint</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/ceramic-coating-maintenance-protocol</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/wheel-detailing-masterclass</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/blog/professional-leather-care-guide</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- High-Intent Product Reviews -->
-  <url>
-    <loc>https://carwipes.de/#/product/nuke-guys-gamma-dryer-s-ultra-absorbent-handy-drying-cloth-1400-gsm-grey-40-x-40-cm-lint-free-rounded-soft-fibres-scratch-free-premium-microfibre-cloth-for-cars-motorcycles-bicycles</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/detailmate-koch-chemie-refresh-cockpit-care-set-0-5-l-sponge-applicator-soft-microfibre-cloth-interior-cleaning</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/1x-liquid-elements-silverback-dry-cloth-xl-50-x-80-cm-1200gsm</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/gentlemonkeys-professional-car-interior-cleaner-set-500-ml-microfibre-cloth-and-sponge-deep-pore-cleaning-of-all-materials-installed-in-the-vehicle-universal-use-biodegradable</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://carwipes.de/#/product/sonax-microfibre-cloth-glass-pack-of-3-absorbent-and-lint-free-for-streak-free-cleanliness-of-windows-and-mirrors-item-no-04515410</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Detailing Articles -->
+  <url><loc>https://carwipes.de/#/blog/best-microfibre-cloth-guide</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/essential-car-wipes-list</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/streak-free-glass-detailing</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/microfibre-maintenance-guide</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/interior-restoration-blueprint</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/ceramic-coating-maintenance-protocol</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/wheel-detailing-masterclass</loc><priority>0.8</priority></url>
+  <url><loc>https://carwipes.de/#/blog/professional-leather-care-guide</loc><priority>0.8</priority></url>
 </urlset>
