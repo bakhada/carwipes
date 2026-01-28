@@ -1,4 +1,29 @@
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /products
+Allow: /product/
+Allow: /about
+Allow: /contact
 
-Sitemap: https://www.carwipes.de/sitemap.xml
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*.pdf$
+
+# Crawl delay to prevent server overload
+Crawl-delay: 1
+
+# Sitemaps for Google (English & German)
+Sitemap: https://carwipes.de/sitemap.xml
+Sitemap: https://carwipes.de/sitemap-de.xml
+
+# Request rate limiting
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

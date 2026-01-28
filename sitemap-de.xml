@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- GERMAN HOME PAGE -->
+  <url>
+    <loc>https://carwipes.de/?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- GERMAN PRODUCTS CATALOG -->
+  <url>
+    <loc>https://carwipes.de/products?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/products?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/products?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- GERMAN BLOG -->
+  <url>
+    <loc>https://carwipes.de/blog?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- GERMAN BLOG POSTS WITH LOCALIZED KEYWORDS -->
+  <url>
+    <loc>https://carwipes.de/blog/bester-mikrofaser-leitfaden?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/bester-mikrofaser-leitfaden?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/best-microfibre-cloth-guide?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/wesentliche-autopflege-wipes-liste?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/wesentliche-autopflege-wipes-liste?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/essential-car-wipes-list?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/streifenfreie-glas-detaillierung?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/streifenfreie-glas-detaillierung?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/streak-free-glass-detailing?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/mikrofaser-wartungsanleitung?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/mikrofaser-wartungsanleitung?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/microfibre-maintenance-guide?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/innenraum-restaurierung-anleitung?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/innenraum-restaurierung-anleitung?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/interior-restoration-blueprint?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/keramikbeschichtung-wartungsprotokoll?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/keramikbeschichtung-wartungsprotokoll?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/ceramic-coating-maintenance-protocol?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/felgen-detailierung-meisterkurs?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/felgen-detailierung-meisterkurs?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/wheel-detailing-masterclass?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/blog/professionelle-lederpflege-anleitung?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/blog/professionelle-lederpflege-anleitung?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/blog/professional-leather-care-guide?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- GERMAN CORE PAGES -->
+  <url>
+    <loc>https://carwipes.de/ueber-uns?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/ueber-uns?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/about?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/kontakt?lang=de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://carwipes.de/kontakt?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carwipes.de/contact?lang=en"/>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- GERMAN LEGAL PAGES -->
+  <url>
+    <loc>https://carwipes.de/datenschutz?lang=de</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/bedingungen?lang=de</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://carwipes.de/offenlegung?lang=de</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
